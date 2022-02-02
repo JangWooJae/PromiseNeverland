@@ -39,7 +39,9 @@ public class Interactive : MonoBehaviour
 
     void Update()
     {
-        CheckObject();
+        if(!isInteract){
+            CheckObject();
+        }
         ClickLeftBtn();
     }
 
@@ -49,10 +51,8 @@ public class Interactive : MonoBehaviour
 
         if(Physics.Raycast(cam.ScreenPointToRay(t_MousePos), out hitInfo, 2)){
             Contact();
-        } else {
-            if(!isInteract){ // 대화창이 열려 있을 때 커서를 움직여도 에임이 안나오게 조건문 사용
-                NotContact();
-            }
+        } else { // 대화창이 열려 있을 때 커서를 움직여도 에임이 안나오게 조건문 사용
+            NotContact();
         }
     }
 

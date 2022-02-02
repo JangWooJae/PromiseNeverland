@@ -21,15 +21,6 @@ public class DialogueManager : MonoBehaviour
         theIC = FindObjectOfType<Interactive>();
     }
 
-    void Update(){
-        // Dialogue 활성화 되어 있을 때 대화창을 다음으로 넘기는 기능 구현 예정
-        // if(isDialogue){
-        //     if(Input.GetMouseButtonDown(0)){
-        //         EndDialogue();
-        //     }
-        // }
-    }
-
     // 대화창 활성화
     public void ShowDialogue(){
         txt_Dialogue.text = "";
