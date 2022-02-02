@@ -5,7 +5,9 @@ using UnityEngine;
 public class InteractionType : MonoBehaviour
 {
     public bool isDoor;
-    public bool isObject;
+    public bool isItem;
+    public bool isChar;
+    public bool isFurniture;
 
     [SerializeField] string ObjectName;
 
