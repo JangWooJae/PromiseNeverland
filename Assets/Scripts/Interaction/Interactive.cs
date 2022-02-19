@@ -86,6 +86,8 @@ public class Interactive : MonoBehaviour
                 if(isContact){
                     Interact();
                 }
+            } else if(isInteract){
+                theDM.NextDialogue();
             }
         } 
     }

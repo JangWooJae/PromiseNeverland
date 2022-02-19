@@ -28,10 +28,6 @@ public class DialogueManager : MonoBehaviour
         theIC = FindObjectOfType<Interactive>();
     }
 
-    void update(){
-        NextDialogue();
-    }
-
     // 대화창 활성화
     public void ShowDialogue(Dialogue[] p_dialogues){
         txt_Dialogue.text = "";
@@ -42,9 +38,11 @@ public class DialogueManager : MonoBehaviour
         theIC.HideUI();
         SettingUI(true);
         StartCoroutine(TypeWriter());
+        StartCoroutine(BlinkDialogueArrow());
     }
 
-    void NextDialogue(){
+    // ../Interaction/Interactive/ClickLeftButton 메소드에서 넘어옴
+    public void NextDialogue(){
         if (isDialogue){
             if(isNext){
                 if(Input.GetMouseButtonDown(0)){
@@ -57,6 +55,7 @@ public class DialogueManager : MonoBehaviour
                         contextCount = 0;
                         if(++lineCount < dialogues.Length){
                             StartCoroutine(TypeWriter());
+                            StartCoroutine(BlinkDialogueArrow());
                         } else {
                             EndDialogue();
                         }
@@ -102,6 +101,20 @@ public class DialogueManager : MonoBehaviour
     }
 
     // 대화창 오른쪽 아래 화살표 깜빡거리게 하는 Coroutine
-    // IEnumerator DialogueArrow()
+    IEnumerator BlinkDialogueArrow(){
+        while(isDialogue){
+            Color color = img_DialogueArrow.color;
+
+            color.a = 0.7f;
+            img_DialogueArrow.color = color;
+            yield return new WaitForSeconds(0.5f);
+
+            color.a = 0;
+            img_DialogueArrow.color = color;
+            yield return new WaitForSeconds(0.5f);
+
+        }
+    }
+
 
 }
