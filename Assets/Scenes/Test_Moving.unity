@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,6 +257,7 @@ MonoBehaviour:
   img_DialogueArrow: {fileID: 360902087}
   txt_Dialogue: {fileID: 937934010}
   txt_DialogueName: {fileID: 81073812}
+  textDelay: 0.03
 --- !u!1 &288248659
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,8 +877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoor: 0
-  isItem: 0
-  isChar: 1
+  isItem: 1
+  isChar: 0
   isFurniture: 0
   ObjectName: Cube
 --- !u!1 &937934008
@@ -971,6 +972,7 @@ GameObject:
   - component: {fileID: 972903358}
   - component: {fileID: 972903357}
   - component: {fileID: 972903356}
+  - component: {fileID: 972903359}
   - component: {fileID: 972903355}
   m_Layer: 0
   m_Name: Capsule
@@ -1020,8 +1022,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoor: 0
-  isItem: 1
-  isChar: 0
+  isItem: 0
+  isChar: 1
   isFurniture: 0
   ObjectName: "\uC6B0\uC7AC"
 --- !u!23 &972903357
@@ -1073,6 +1075,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972903353}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &972903359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972903353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2cb93872b89644da736aa4c0868bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "Dialogue \uD14C\uC2A4\uD2B8"
+    line: {x: 1, y: 3}
+    dialogues:
+    - name: 
+      context: []
+    - name: 
+      context: []
+    - name: 
+      context: []
 --- !u!1 &989690767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1287,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159605646}
   m_CullTransparentMesh: 1
+--- !u!1 &1165578709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165578710}
+  - component: {fileID: 1165578711}
+  - component: {fileID: 1165578712}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1165578710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165578709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9222238, y: -2.0392535, z: -0.7544062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165578711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165578709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611340835b9174840a67392c8d3cb791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1165578712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165578709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e7c35d9e7968545bacf358301dd884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csv_FileName: testDialogue
 --- !u!1 &1229033236
 GameObject:
   m_ObjectHideFlags: 0

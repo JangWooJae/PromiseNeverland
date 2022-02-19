@@ -86,11 +86,7 @@ public class Interactive : MonoBehaviour
                 if(isContact){
                     Interact();
                 }
-            } else if(isInteract){
-                if(isContact){
-                    theDM.NextText();
-                }
-            }   
+            }
         } 
     }
 
@@ -98,7 +94,7 @@ public class Interactive : MonoBehaviour
     void Interact(){
         isInteract = true;
 
-        theDM.ShowDialogue();
+        theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
 
     }
 }
