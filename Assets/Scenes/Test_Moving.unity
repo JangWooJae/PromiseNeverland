@@ -780,6 +780,7 @@ GameObject:
   - component: {fileID: 921169801}
   - component: {fileID: 921169800}
   - component: {fileID: 921169802}
+  - component: {fileID: 921169803}
   - component: {fileID: 921169799}
   m_Layer: 0
   m_Name: Cube
@@ -881,6 +882,24 @@ MonoBehaviour:
   isChar: 0
   isFurniture: 0
   ObjectName: Cube
+--- !u!114 &921169803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921169797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2cb93872b89644da736aa4c0868bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "\uC544\uC774\uD15C \uD68D\uB4DD \uAE30\uB2A5 \uBBF8\uAD6C\uD604 \uBA54\uC138\uC9C0"
+    line: {x: 4, y: 4}
+    dialogues:
+    - name: 
+      context: []
 --- !u!1 &937934008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,9 +1176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoor: 0
-  isItem: 1
+  isItem: 0
   isChar: 0
-  isFurniture: 0
+  isFurniture: 1
   ObjectName: Sphere
 --- !u!23 &989690771
 MeshRenderer:
@@ -1730,7 +1749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603178992}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InteractiveObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

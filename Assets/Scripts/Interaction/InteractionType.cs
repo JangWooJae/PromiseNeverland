@@ -13,5 +13,16 @@ public class InteractionType : MonoBehaviour
 
     public string GetName(){
         return ObjectName;
-    }
+    } //
+
+    public string GetType(){
+        string ObjectType = "";
+
+        if(isDoor){ObjectType = "Door";} 
+        else if(isItem){ObjectType = "Item";}
+        else if(isChar){ObjectType = "Char";}
+        else if(isFurniture){ObjectType = "Furniture";}
+
+        return ObjectType;
+    } //
 }

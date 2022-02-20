@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start(){
         theIC = FindObjectOfType<Interactive>();
-    }
+    } //
 
     // 대화창 활성화
     public void ShowDialogue(Dialogue[] p_dialogues){
@@ -39,31 +39,29 @@ public class DialogueManager : MonoBehaviour
         SettingUI(true);
         StartCoroutine(TypeWriter());
         StartCoroutine(BlinkDialogueArrow());
-    }
+    } //
 
     // ../Interaction/Interactive/ClickLeftButton 메소드에서 넘어옴
     public void NextDialogue(){
         if (isDialogue){
             if(isNext){
-                if(Input.GetMouseButtonDown(0)){
-                    isNext = false;
-                    txt_Dialogue.text = "";
+                isNext = false;
+                txt_Dialogue.text = "";
 
-                    if(++contextCount < dialogues[lineCount].context.Length){
+                if(++contextCount < dialogues[lineCount].context.Length){
+                    StartCoroutine(TypeWriter());
+                } else{
+                    contextCount = 0;
+                    if(++lineCount < dialogues.Length){
                         StartCoroutine(TypeWriter());
-                    } else{
-                        contextCount = 0;
-                        if(++lineCount < dialogues.Length){
-                            StartCoroutine(TypeWriter());
-                            StartCoroutine(BlinkDialogueArrow());
-                        } else {
-                            EndDialogue();
-                        }
+                        StartCoroutine(BlinkDialogueArrow());
+                    } else {
+                        EndDialogue();
                     }
                 }
             }
         }
-    }
+    } //
 
     // 대화창 비활성화
     void EndDialogue(){
@@ -74,7 +72,7 @@ public class DialogueManager : MonoBehaviour
 
         theIC.ShowUI();
         SettingUI(false);
-    }
+    } //
     
     // 대화창 상태 변경 함수
     void SettingUI(bool p_flag){
@@ -82,7 +80,7 @@ public class DialogueManager : MonoBehaviour
         go_DialogueBar.SetActive(p_flag);
         go_DialogueNameBar.SetActive(p_flag);
 
-    }
+    } //
 
     IEnumerator TypeWriter(){
         string t_ReplaceText = dialogues[lineCount].context[contextCount];
@@ -98,7 +96,7 @@ public class DialogueManager : MonoBehaviour
         isNext = true;
         yield return null;
 
-    }
+    } //
 
     // 대화창 오른쪽 아래 화살표 깜빡거리게 하는 Coroutine
     IEnumerator BlinkDialogueArrow(){
@@ -114,7 +112,7 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
         }
-    }
+    } //
 
 
 }

@@ -24,21 +24,21 @@ public class PlayerMovement : MonoBehaviour {
         // 리지드바디 컴포넌트의 인스턴스를 얻는다
         rigid = GetComponent<Rigidbody>();
         isjumping = false;
-    }
+    } //
     
     void Update()
     {
         Move();
         Sight();
         Jump();
-    }
+    } //
 
 
     // 바닥에 착지할 때 점프 가능하게 바꿔주는 함수
     void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "Ground"){
-            isjumping = false;
-        }
+        // if (collision.gameObject.tag == "Ground"){
+        isjumping = false;
+        // }
     } // 끝
 
 

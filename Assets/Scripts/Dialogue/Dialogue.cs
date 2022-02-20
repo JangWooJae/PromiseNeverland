@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Dialogue
-{
+public class Dialogue{
     [Tooltip("대사 치는 케릭터 이름")]
     public string name;
 

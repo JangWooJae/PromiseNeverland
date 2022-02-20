@@ -24,18 +24,18 @@ public class Interactive : MonoBehaviour
     public void HideUI(){
         go_InteractiveAim.SetActive(false);
         go_NormalAim.SetActive(false);
-    }
+    } //
 
     // 대화 종료 시 에임이 다시 나오는 함수
     public void ShowUI(){
         go_NormalAim.SetActive(true);
         isInteract = false;
         isContact = false;
-    }
+    } //
 
     void Start(){
         theDM = FindObjectOfType<DialogueManager>();
-    }
+    } //
 
     void Update()
     {
@@ -43,7 +43,7 @@ public class Interactive : MonoBehaviour
             CheckObject();
         }
         ClickLeftBtn();
-    }
+    } //
 
     // 상호작용 가능 여부 판단하는 항목
     void CheckObject(){
@@ -54,7 +54,7 @@ public class Interactive : MonoBehaviour
         } else { // 대화창이 열려 있을 때 커서를 움직여도 에임이 안나오게 조건문 사용
             NotContact();
         }
-    }
+    } //
 
     // 상호작용 가능한 오브젝트에 에임이 닿았을 때 관련 항목 활성화
     void Contact(){
@@ -68,7 +68,7 @@ public class Interactive : MonoBehaviour
         } else{
             NotContact();
         }
-    }
+    } //
 
     // 상호작용 가능한 오브젝트에서 에임이 벗어났을 때 관련 항목 비활성화
     void NotContact(){
@@ -77,7 +77,7 @@ public class Interactive : MonoBehaviour
             go_InteractiveAim.SetActive(false);
             go_NormalAim.SetActive(true);
         }
-    }
+    } //
 
     // 좌클릭 상호작용
     void ClickLeftBtn(){
@@ -90,13 +90,21 @@ public class Interactive : MonoBehaviour
                 theDM.NextDialogue();
             }
         } 
-    }
+    } //
 
     // 상호작용
     void Interact(){
         isInteract = true;
+        string ObjectType = hitInfo.transform.GetComponent<InteractionType>().GetType();
 
-        theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
+        if(ObjectType == "Char"){
+            theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
+        } else if(ObjectType == "Item"){
+            theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
+        } else{
+            ShowUI();
+            NotContact();
+        }
 
-    }
+    } //
 }
