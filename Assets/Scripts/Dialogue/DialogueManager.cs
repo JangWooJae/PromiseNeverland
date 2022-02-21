@@ -78,13 +78,24 @@ public class DialogueManager : MonoBehaviour
     void SettingUI(bool p_flag){
         isDialogue = p_flag;
         go_DialogueBar.SetActive(p_flag);
-        go_DialogueNameBar.SetActive(p_flag);
+
+        if(p_flag){
+            if(dialogues[lineCount].name == ""){
+                go_DialogueNameBar.SetActive(false);
+            } else{
+                go_DialogueNameBar.SetActive(true);
+                txt_DialogueName.text = dialogues[lineCount].name;
+            }
+        } else{
+            go_DialogueNameBar.SetActive(false);
+        }
 
     } //
 
     IEnumerator TypeWriter(){
         string t_ReplaceText = dialogues[lineCount].context[contextCount];
         t_ReplaceText = t_ReplaceText.Replace("'", ",");
+        t_ReplaceText = t_ReplaceText.Replace("\\n", "\n");
 
         // txt_Dialogue.text = t_ReplaceText;
         txt_DialogueName.text = dialogues[lineCount].name;

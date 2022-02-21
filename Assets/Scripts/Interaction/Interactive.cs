@@ -95,7 +95,7 @@ public class Interactive : MonoBehaviour
     // 상호작용
     void Interact(){
         isInteract = true;
-        string ObjectType = hitInfo.transform.GetComponent<InteractionType>().GetType();
+        string ObjectType = hitInfo.transform.GetComponent<InteractionType>().GetObjectType();
 
         if(ObjectType == "Char"){
             theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());

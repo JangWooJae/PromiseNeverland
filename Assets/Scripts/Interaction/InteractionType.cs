@@ -15,7 +15,7 @@ public class InteractionType : MonoBehaviour
         return ObjectName;
     } //
 
-    public string GetType(){
+    public string GetObjectType(){
         string ObjectType = "";
 
         if(isDoor){ObjectType = "Door";} 

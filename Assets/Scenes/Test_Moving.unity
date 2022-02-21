@@ -1317,6 +1317,7 @@ GameObject:
   - component: {fileID: 1165578710}
   - component: {fileID: 1165578711}
   - component: {fileID: 1165578712}
+  - component: {fileID: 1165578713}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1363,6 +1364,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   csv_FileName: testDialogue
+--- !u!114 &1165578713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165578709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cca3846e6a4619418d5c864cce61d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_Item: {fileID: 921169797}
 --- !u!1 &1229033236
 GameObject:
   m_ObjectHideFlags: 0
