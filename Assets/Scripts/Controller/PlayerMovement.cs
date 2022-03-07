@@ -28,9 +28,11 @@ public class PlayerMovement : MonoBehaviour {
     
     void Update()
     {
-        Move();
-        Sight();
-        Jump();
+        if(!Interactive.isConversation){
+            Move();
+            Sight();
+            Jump();
+        }
     } //
 
 

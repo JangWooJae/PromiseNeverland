@@ -16,7 +16,8 @@ public class Interactive : MonoBehaviour
     [SerializeField] Text txt_TargetName;
 
     bool isContact = false; // 상호작용 가능 오브젝트에 에임이 걸렸는 지 여부 확인
-    public static bool isInteract = false; // 상호작용 가능 오브젝트와 상호작용 했는지 여부 (상호작용 시 투사체가 날아가는 이펙트 구현시 필요)
+    public static bool isInteract = false; // 상호작용 가능 오브젝트와 상호작용 했는지 여부
+    public static bool isConversation = false; // 케릭터와 대화 여부 판별
 
     DialogueManager theDM;
     
@@ -31,6 +32,9 @@ public class Interactive : MonoBehaviour
         go_NormalAim.SetActive(true);
         isInteract = false;
         isContact = false;
+        if(isConversation){
+            isConversation = false;
+        }
     } //
 
     void Start(){
@@ -99,6 +103,7 @@ public class Interactive : MonoBehaviour
 
         if(ObjectType == "Char"){
             theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
+            isConversation = true;
         } else if(ObjectType == "Item"){
             theDM.ShowDialogue(hitInfo.transform.GetComponent<InteractionEvent>().GetDialogue());
         } else{
